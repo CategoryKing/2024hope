@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    #gif-container {
+      position: relative;
+      cursor: pointer;
+    }
+    #random-image {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<div id="gif-container">
+  <img id="animated-gif" src="animated.gif" alt="Animated GIF">
+  <img id="random-image" alt="Random Image">
+</div>
+
+<script>
+  var gifContainer = document.getElementById('gif-container');
+  var animatedGif = document.getElementById('animated-gif');
+  var randomImage = document.getElementById('random-image');
+
+  var randomImages = [
+    'image1.jpg',
+    'image2.jpg',
+    'image3.jpg',
+    'image4.jpg',
+    'image5.jpg', 
+    'image6.jpg',   
+    'image7.jpg',
+    'image8.jpg', 
+    'image9.jpg',
+    'image10.jpg',
+    'image11.jpg',
+    'image12.jpg',
+    'image13.jpg',
+    'image14.jpg',
+    'image15.jpg',
+    'image16.jpg',
+    'image17.jpg',
+    'image18.jpg',
+    'image19.jpg',
+    'image20.jpg',
+    'image21.jpg',
+    'image22.jpg',
+  ];
+
+  var isPaused = false;
+
+  gifContainer.addEventListener('click', function() {
+    isPaused = !isPaused;
+    if (isPaused) {
+      animatedGif.style.display = 'none';
+      var randomIndex = Math.floor(Math.random() * randomImages.length);
+      randomImage.src = randomImages[randomIndex];
+      randomImage.style.display = 'block';
+    } else {
+      animatedGif.style.display = 'block';
+      randomImage.style.display = 'none';
+    }
+  });
+</script>
+
+</body>
+</html>
